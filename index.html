@@ -50,6 +50,9 @@
           </div>
           <div id="allphoto" class="isotopeContainer d-flex flex-wrap">
             <!-- 照片墙 -->
+            <div id="photoleft" class="col-lg-4 col-sm-4 col-md-6"></div>
+            <div id="photoconcer" class="col-lg-4 col-sm-4 col-md-6"></div>
+            <div id="photoright" class="col-lg-4 col-sm-4 col-md-6"></div>
           </div>
         </div>
       </section>
@@ -66,8 +69,8 @@
             <div class="row">
               <div class="col-sm-8 col-sm-offset-2">
                 <!-- 故事 -->
-                <p>样式样式样式样式样式样式样式样式</p>
-                <p>样式样式样式样式样式样式样式样式</p>
+                <p></p>
+                <p></p>
               </div>
             </div>
           </div>
@@ -95,7 +98,8 @@
     window.onload = function() {
       var img = ['images/1.jpg','images/2.jpg','images/3.jpg','images/4.jpg'];
       $('.demo').html(insertCarousel(img))
-      $('#allphoto').html(insertPhoto(8))
+      var description = [0,1,2,3,4,5,6]
+      insertPhoto(7,description)
     }
   </script>
 </body>

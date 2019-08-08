@@ -24,18 +24,24 @@ function insertCarousel(img) {
   return html;
 }
 
-function insertPhoto(number) {
-  html = '<div class="col-lg-4 col-sm-4 col-md-6">'
-  for (var i = 1; i < number; i++) {
+function insertPhoto(number, description) {
+  for (var i = 0; i < number; i++) {
+    html = ''
     html += '<div><div class="portfolio-box zoom-effect">';
     html += '<a href="images/' + i + '.jpg" data-lightbox="example-set"><img src="images/' + i + '-thumb.jpg" class="img-responsive" alt="">';
     html += '<div class="portfolio-box-caption"><div class="portfolio-box-caption-content"><div class="project-social"><ul class="list-inline"><li><i class="fa fa-search">'
-    html += '图片'
+    html += description[i]
     html += '</i></li></ul></div></div></div></a></div></div>'
-    if ((i>=number/3-1&&i<number/3)||(i>=2*number/3-1&&i<2*number/3)) {
-      html+='</div><div class="col-lg-4 col-sm-4 col-md-6">'
-    }
+    console.log(minHeight());
+    $(minHeight()).append(html)
+    console.log(i+',description'+description[i]);
   }
-  html+='</div>'
-  return html;
+}
+
+function minHeight() {
+  var a = $('#photoleft').children().length
+  var b = $('#photoconcer').children().length
+  var c = $('#photoright').children().length
+  console.log(a + ',' + b + ',' + c);
+  return a <= b ? (a <= c ? '#photoleft' : '#photoright') : (b <= c ? '#photoconcer' : '#photoright')
 }
